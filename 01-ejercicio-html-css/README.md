@@ -44,3 +44,5 @@ Puedes ver aquí un botón dentro del inspector de código que te permite ver co
 <img width="1062" height="1258" alt="CleanShot 2025-10-23 at 18 21 17@2x" src="https://github.com/user-attachments/assets/2b23123f-2526-4d84-a15d-bdc61acfeb1f" />
 
 La página no está 100% igual al de la imagen, pero ese no es el objetivo del ejercicio, sino que entiendan cómo se estructura y cómo se estila cada elemento, sin tener que ser pixel perfect.
+
+PD: En el código hemos dejado comentarios para que puedan entender mejor lo que cambiamos y algunas explicaciones más.
