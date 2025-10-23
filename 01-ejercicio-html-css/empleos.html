@@ -1,9 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Si el contenido de la página está en español, tiene sentido que el atributo lang sea "es". Si su contenido principal de la pagina está en inglés, el atributo lang sería "en"
+Esto es para:
+- Lectores de pantalla: Permite que lean el contenido con la pronunciación y entonación correcta del idioma
+- Motores de búsqueda: Ayuda a indexar la página en el idioma correcto y mostrarla en búsquedas relevantes
+- Navegadores: Pueden ofrecer traducción automática o corrección ortográfica en el idioma adecuado
+- Accesibilidad: Mejora la experiencia para usuarios con tecnologías asistivas
+-->
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=desktop, initial-scale=1.0">
     <title>DevJobs</title>
+    <!-- El tag de description es un tag meta que describe el contenido de la página. Se usa para: 
+    - Optimización de motores de búsqueda (SEO)
+    - Generación de previews en redes sociales
+    - Mejor experiencia del usuario al compartir enlaces
+    -->
+    <meta name="description" content="Encuentra las mejores ofertas de trabajo para desarrolladores en DevJobs.">
     <link rel="stylesheet" href="./styles.css">
 
 </head>
@@ -11,14 +24,21 @@
     <header>
         <div class="header-sign-in">
             <h1> 
+                <!-- El ejercicio está excelente! Asi que vamos a añadir algunos detalles más asociados a accesibilidad.
+                La etiqueta svg (como muchas otras etiquetas) tiene el atributo aria-hidden="true", para que no se lea por lectores de pantalla.
+                Esto se usa solo cuando el svg es decorativo, es decir, cuando no tiene contenido semanticamente relevante.
+                -->
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <polyline points="16 18 22 12 16 6"></polyline>
                     <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>           
             DevJobs
             </h1>
-            <nav class="nav-menu">
+            <!-- Añadimos el atributo aria-label para que el lector de pantalla lea el nombre de la navegación e identifique que es el menú principal.
+            Esto no es obligatorio, pero es algo interesante para saber cómo funciona y cómo se ve.
+            -->
+            <nav aria-label="Navegación principal" class="nav-menu">
                 <a href="./index.html">Inicio</a>
                 <a href="./empleos.html">Empleos</a>
                 <a href="#">Empresas</a>
@@ -28,105 +48,116 @@
         <!-- Botones para desktop (siempre visibles en desktop) -->
         <div class="header-buttons">
             <a class="btn btn-primary" href="">Subir CV</a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-user"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" /><path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" /></svg>
+            <a href="" aria-label="Perfil de usuario" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-user" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" /><path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" /></svg>
+            </a>
         </div>
-    </header>
-    <main class="jobs">
-        <section class="titles">
-            <h1>Encuentra tu proximo trabajo</h1>
-            <h4>Explora miles de oportunidades en el sector tecnologico</h4>
-        </section>
+        </header>
+        <main class="jobs">
         <section class="search-section">
+            <!-- Cambiamos de h2 a h1 porque esta es una sección nueva, y el título principal de la página es este.
+            También cambiamos h4 a p con clase "subtitle" porque no es un encabezado jerárquico, sino texto descriptivo.
+            Las etiquetas de encabezado (h1-h6) son para títulos reales, no para texto descriptivo.
+            -->
+            <h1>Encuentra tu próximo trabajo</h1>
+            <p class="subtitle">Explora miles de oportunidades en el sector tecnológico</p>
             <form class="search-job" role="search">
-                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#94a3b8"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                <!-- El svg es decorativo, por eso se le añade aria-hidden="true" -->
+                <svg  xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#94a3b8"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
                 <input  required type="text" placeholder="Buscar trabajos, empresas o habilidades">
             </form>
-        <section class="filters">
-            <select id="job-type" name="job-type">
+            <!-- Usamos <fieldset> para agrupar semánticamente controles de formulario relacionados (los filtros).
+            El <legend> describe el propósito del grupo. Lo ocultamos visualmente con "visually-hidden" porque 
+            ya es obvio visualmente que son filtros, pero los lectores de pantalla lo anunciarán.
+            Los <label> también están ocultos porque los <select> ya tienen texto visible, pero los labels son necesarios para asociar correctamente cada control y mejorar la accesibilidad (esto solo será visible por los lectores también, por eso repito esto: Son detalles para mejorar el ejercicio, ya está muy bien! Es solo contenido extra para expandir en los detalles :) )
+            -->
+            <fieldset class="filters">
+                <legend class="visually-hidden">Filtros de búsqueda</legend>
+                
+                <label for="job-type" class="visually-hidden">Tecnología</label>
+                <select id="job-type" name="job-type" aria-label="Filtrar por tecnología">
                     <option selected disabled>Tecnología</option>
                     <option value="js">JavaScript</option>
                     <option value="py">Python</option>
                     <option value="java">Java</option>
                     <option value="react">React</option>
                     <option value="node">Node.js</option>
-            </select>
+                </select>
 
-            <select name="location" id="filter-location">
-                <option value="">Ubicación</option>
-                <option value="remoto">Remoto</option>
-                <option value="cdmx">Ciudad de México</option>
-                <option value="guadalajara">Guadalajara</option>
-                <option value="monterrey">Monterrey</option>
-                <option value="barcelona">Barcelona</option>
-            </select>
+                <label for="filter-location" class="visually-hidden">Ubicación</label>
+                <select name="location" id="filter-location" aria-label="Filtrar por ubicación">
+                    <option value="">Ubicación</option>
+                    <option value="remoto">Remoto</option>
+                    <option value="cdmx">Ciudad de México</option>
+                    <option value="guadalajara">Guadalajara</option>
+                    <option value="monterrey">Monterrey</option>
+                    <option value="barcelona">Barcelona</option>
+                </select>
 
-            <select name="experience-level" id="filter-experience-level">
-                <option value="">Nivel de experiencia</option>
-                <option value="junior">Junior</option>
-                <option value="mid">Mid-level</option>
-                <option value="senior">Senior</option>
-                <option value="lead">Lead</option>
-            </select>
+                <label for="filter-experience-level" class="visually-hidden">Nivel de experiencia</label>
+                <select name="experience-level" id="filter-experience-level" aria-label="Filtrar por nivel de experiencia">
+                    <option value="">Nivel de experiencia</option>
+                    <option value="junior">Junior</option>
+                    <option value="mid">Mid-level</option>
+                    <option value="senior">Senior</option>
+                    <option value="lead">Lead</option>
+                </select>
+            </fieldset>
         </section>
-            <section class="search-results">
-                <h2>Resultados de la búsqueda</h2>
-                <div class="results">
-                    <div class="job-list">
-                        <div class="job-item">
-                            <div>
-                                <h3 class="job-title">Ingeriero de software</h3>
-                                <p class="company-name">Tech Solutions Inc. | Remoto</p>
-                                <p class="job-description">Buscamos un ingeniero de software con experiencia en desarrollo web y conocimientos en JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.</p>
-                            </div>
-                            <div class="job-actions">
-                                <button class="btn apply-button">Aplicar</button>
-                            </div>
-                        </div>
-                        <div class="job-item">
-                            <div>
-                                <h3 class="job-title">Desarrollador Frontend</h3>
-                                <p class="company-name">Innovatech | Híbrido</p>
-                                <p class="job-description">Se busca desarrollador frontend con experiencia en HTML, CSS y frameworks modernos como React o Vue.js. El candidato debe tener un buen ojo para el diseño y ser capaz de crear interfaces de usuario atractivas y funcionales.</p>
-                            </div>
-                            <div class="job-actions">
-                                <button class="apply-button btn">Aplicar</button>
-                            </div>
-                        </div>
-                        <div class="job-item">
-                            <div>
-                                <h3 class="job-title">Administrador de Sistemas</h3>
-                                <p class="company-name">DataCorp | Presencial</p>
-                                <p class="job-description">Estamos buscando un administrador de sistemas con experiencia en la gestión de servidores Linux y Windows. El candidato ideal debe tener conocimientos en redes, seguridad informática y ser capaz de resolver problemas técnicos de manera eficiente.</p>
-                            </div>
-                            <div class="job-actions">
-                                <button class="apply-button btn">Aplicar</button>
-                            </div>
-                        </div>
-                        <div class="job-item">
-                            <div>
-                                <h3 class="job-title">Científico de Datos</h3>
-                                <p class="company-name">AnalyticsPro | Remoto</p>
-                                <p class="job-description">Buscamos un científico de datos con experiencia en análisis estadístico, machine learning y manejo de grandes volúmenes de datos. El candidato debe ser capaz de trabajar con Python, R y herramientas de visualización de datos.</p>
-                            </div>
-                            <div class="job-actions">
-                                <button class="apply-button btn">Aplicar</button>
-                            </div>
-                        </div>
-                        <!-- Más ofertas de empleo pueden ser añadidas aquí -->
-                         <section class="pagination">
-                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
-                            <nav>
-                               <a class="btn" href="#">1</a>
-                               <a class="btn" href="#">2</a>
-                               <a class="btn" href="#">3</a>
-                               <a class="btn" href="#">4</a>
-                               <a class="btn" href="#">5</a>
-                            </nav>
-                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
-                         </section>
+        
+        <section class="search-results">
+            <h2>Resultados de la búsqueda</h2>
+            <div class="job-list">
+                <article class="job-item">
+                    <div>
+                        <h3 class="job-title">Ingeniero de software</h3>
+                        <p class="company-name">Tech Solutions Inc. | Remoto</p>
+                        <p class="job-description">Buscamos un ingeniero de software con experiencia en desarrollo web y conocimientos en JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.</p>
                     </div>
-                </div>
-            </section>
+                    <!-- No es necesario el contenedor al botón, el botón por si solo se puede posicionar -->
+                    <button class="btn apply-button" aria-label="Aplicar a Ingeniero de software en Tech Solutions Inc.">Aplicar</button>
+                </article>
+                <article class="job-item">
+                    <div>
+                        <h3 class="job-title">Desarrollador Frontend</h3>
+                        <p class="company-name">Innovatech | Híbrido</p>
+                        <p class="job-description">Se busca desarrollador frontend con experiencia en HTML, CSS y frameworks modernos como React o Vue.js. El candidato debe tener un buen ojo para el diseño y ser capaz de crear interfaces de usuario atractivas y funcionales.</p>
+                    </div>
+                    <button class="btn apply-button" aria-label="Aplicar a Desarrollador Frontend en Innovatech">Aplicar</button>
+                </article>
+                <article class="job-item">
+                    <div>
+                        <h3 class="job-title">Administrador de Sistemas</h3>
+                        <p class="company-name">DataCorp | Presencial</p>
+                        <p class="job-description">Estamos buscando un administrador de sistemas con experiencia en la gestión de servidores Linux y Windows. El candidato ideal debe tener conocimientos en redes, seguridad informática y ser capaz de resolver problemas técnicos de manera eficiente.</p>
+                    </div>
+                    <button class="btn apply-button" aria-label="Aplicar a Administrador de Sistemas en DataCorp">Aplicar</button>
+                </article>
+                <article class="job-item">
+                    <div>
+                        <h3 class="job-title">Científico de Datos</h3>
+                        <p class="company-name">AnalyticsPro | Remoto</p>
+                        <p class="job-description">Buscamos un científico de datos con experiencia en análisis estadístico, machine learning y manejo de grandes volúmenes de datos. El candidato debe ser capaz de trabajar con Python, R y herramientas de visualización de datos.</p>
+                    </div>
+                    <button class="btn apply-button" aria-label="Aplicar a Científico de Datos en AnalyticsPro">Aplicar</button>
+                </article>
+                <!-- Más ofertas de empleo pueden ser añadidas aquí -->
+            </div>
+            
+            <nav class="pagination" aria-label="Paginación de resultados">
+                <a class="btn" href="#"  aria-label="Página anterior">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
+                </a>
+                <a class="btn" href="#">1</a>
+                <a class="btn" href="#">2</a>
+                <a class="btn" href="#">3</a>
+                <a class="btn" href="#">4</a>
+                <a class="btn" href="#">5</a>
+                <a class="btn" href="#"  aria-label="Página siguiente">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                </a>
+            </nav>
+        </section>
     </main>
     <footer>
         <small>&copy; 2025 Devjobs. Todos los derechos reservados.</small>
