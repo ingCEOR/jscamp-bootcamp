@@ -9,6 +9,25 @@
   box-sizing: border-box;
 }
 
+/* Clase para ocultar elementos visualmente pero mantenerlos accesibles para lectores de pantalla.
+Esto parece complejo y sin mucho sentido, porque dirás... por qué no usa un display none?
+
+La cuestión con el display none es que también oculta el elemento para los lectores de pantalla, por lo que no será accesible el contenido.
+
+Luego veremos herramientas de CSS como Tailwind, pero lo importante aquí es que esta manera se volvió un estándar entre algunos frameworks y librerías para ocultar elementos visualmente pero mantenerlos accesibles.
+*/
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* Variables CSS - Paleta de colores y valores reutilizables del tema */
 :root {
   --primary: #3b4550;
@@ -110,7 +129,8 @@ header {
 }
 
 /* Campo de texto dentro de formularios - Input transparente para búsqueda */
-form input[type="text"] {
+form input[type="text"],
+form input[type="search"] {
   flex: 1; /* Ocupa el espacio disponible en el contenedor flex */
   background: transparent;
   border: none;
@@ -122,7 +142,8 @@ form input[type="text"] {
 }
 
 /* Texto de placeholder - Color suave para guiar al usuario */
-form input[type="text"]::placeholder {
+form input[type="text"]::placeholder,
+form input[type="search"]::placeholder {
   color: #64748b;
 }
 
@@ -163,14 +184,20 @@ select {
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
+  gap: 0.5rem;
 
   a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    margin: 0 0.5rem;
     text-decoration: none;
     color: var(--text-primary);
+    background-color: transparent;
+    border: 1px solid transparent;
     transition: all 0.1s ease;
+    cursor: pointer;
 
     &:hover {
       background-color: var(--primary-hover);
@@ -178,17 +205,6 @@ select {
     }
     &:active {
       transform: scale(0.95);
-    }
-
-  }
-  svg{
-    transition: all 0.1s ease;
-    cursor: pointer;
-    &:hover{
-      transform: scale(1.5);
-    }
-    &:active {
-      transform: scale(1);
     }
   }
 }
@@ -199,6 +215,7 @@ select {
   gap: 1rem;
   padding: 0.5rem 0;
   width: 100%;
+  border: none;
 }
 
 /* Página de empleos - Layout principal para listado de trabajos */
@@ -278,18 +295,27 @@ select {
   display: flex;
   gap: 1rem;
   align-items: center;
-  svg{
-    cursor:pointer;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    padding: 0.25rem;
-    width: 50px;
-    height: 50px;
-    &:hover{
-      border: 2px solid var(--primary-light);
+  /* aplicamos los estilos que estaban en el SVG al anchor.
+  La idea de tener este elemento anchor es que pueda tener comportamiento en el futuro, no será solo decorativo. Por eso encapsulamos el SVG en el anchor.
+  */
+    a:has(svg) {
+      cursor:pointer;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      padding: 0.25rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+      &:hover{
+        border: 2px solid var(--primary-light);
+      }
     }
-
-  }
 }
 
 /* Sección de inicio de sesión - Logo + navegación */
@@ -465,11 +491,24 @@ select {
 
 /* --- COMPONENTES DE TRABAJO --- */
 
-/* Contenedor de títulos - Sección de encabezados centrados */
-.titles {
+/* Contenedor de búsqueda - Sección de encabezados centrados */
+.search-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.search-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.search-section .subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Item de trabajo individual - Tarjeta de oferta laboral */
