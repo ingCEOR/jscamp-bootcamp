@@ -46,3 +46,11 @@ Puedes ver aquí un botón dentro del inspector de código que te permite ver co
 La página no está 100% igual al de la imagen, pero ese no es el objetivo del ejercicio, sino que entiendan cómo se estructura y cómo se estila cada elemento, sin tener que ser pixel perfect.
 
 PD: En el código hemos dejado comentarios para que puedan entender mejor lo que cambiamos y algunas explicaciones más.
+
+## Cómo entregar el ejercicio para que lo demos como `completado`
+
+En la parte superior de tu repo te saldrá un cartel así:
+
+<img width="1862" height="168" alt="CleanShot 2025-10-23 at 18 48 48@2x" src="https://github.com/user-attachments/assets/e1fac7a0-c04a-44a6-9059-0fc447b74c14" />
+
+Una vez leas los cambios y los entiendas, puedes darle a `Compare & Pull Request`, ir a la [clase de JSCamp](https://www.jscamp.dev/html-y-css/entregar-ejercicios), pedir review y enseguida daremos la clase por `completado` si no hay dudas :)
