@@ -13,7 +13,7 @@ then((job)=>{
     Esto viene muy bien cuando tenemos muchos elementos que agregar al DOM.
     */
    const documentFragment = document.createDocumentFragment();
-   
+
     job.forEach((jobData)=>{
         const jobItem = document.createElement('article');
         jobItem.classList.add('job-item');
