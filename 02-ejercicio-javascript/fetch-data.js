@@ -34,5 +34,7 @@ then((job)=>{
         documentFragment.appendChild(jobItem);
     });
 
+    
+
     jobListcontainer?.appendChild(documentFragment);
 });
