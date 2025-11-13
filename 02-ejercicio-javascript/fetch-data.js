@@ -4,8 +4,10 @@ fetch("./data.json").then((response)=>{
     return response.json();
 }).
 then((job)=>{
-   
+   const documentFragment = document.createDocumentFragment();
+
     job.forEach((jobData)=>{
+        
         const jobItem = document.createElement('article');
         jobItem.classList.add('job-item');
          jobItem.dataset.titulo = jobData.titulo;
@@ -22,6 +24,7 @@ then((job)=>{
                 <button class="btn apply-button" aria-label="Aplicar a ${jobData.titulo} en ${jobData.empresa}">Aplicar</button>
             </div>
         `;
-        jobListcontainer?.appendChild(jobItem);
+        documentFragment.appendChild(jobItem);
     });
+    jobListcontainer?.appendChild(documentFragment);
 });
